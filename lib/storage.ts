@@ -1,15 +1,11 @@
-import fs from "fs";
-import path from "path";
 import { Service } from "@/types/service";
 
-const filePath = path.join(process.cwd(), "data/services.json");
+let services: Service[] = [];
 
 export function getServices(): Service[] {
-  if (!fs.existsSync(filePath)) return [];
-  const data = fs.readFileSync(filePath, "utf-8");
-  return JSON.parse(data);
+  return services;
 }
 
-export function saveServices(services: Service[]) {
-  fs.writeFileSync(filePath, JSON.stringify(services, null, 2));
+export function saveServices(updated: Service[]) {
+  services = updated;
 }
