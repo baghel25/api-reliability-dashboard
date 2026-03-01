@@ -40,3 +40,15 @@ export async function refreshService(id: string) {
 
   saveServices(updated);
 }
+export async function refreshAllServices() {
+  const services = getServices();
+
+  const updated = await Promise.all(
+    services.map(async (s) => {
+      const health = await checkHealth(s.url);
+      return { ...s, ...health };
+    })
+  );
+
+  saveServices(updated);
+}

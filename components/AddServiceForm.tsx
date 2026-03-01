@@ -21,7 +21,7 @@ export default function AddServiceForm() {
           setName("");
           setUrl("");
 
-          router.refresh(); // 🔥 This re-fetches services and updates table
+          router.refresh(); 
         });
       }}
       className="flex gap-2"
