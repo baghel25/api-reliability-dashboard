@@ -1,0 +1,83 @@
+[
+  {
+    "id": "b8d80518-232f-4764-b471-1ce0d6d44bb1",
+    "name": "Hacker News Search API –",
+    "url": "https://hn.algolia.com/api/v1/search?query=ai",
+    "status": "DOWN",
+    "latencyMs": 1,
+    "lastCheckedAt": "2026-03-01T18:44:56.360Z",
+    "healthScore": 0
+  },
+  {
+    "id": "d39bde79-58e4-4337-bde4-3e7e3df99e50",
+    "name": "Open-Meteo Weather API",
+    "url": "– https://api.open-meteo.com/v1/forecast?latitude=1.29&longitude;= 103.85&current;_weather=true",
+    "status": "DOWN",
+    "latencyMs": 1,
+    "lastCheckedAt": "2026-03-01T18:46:18.031Z",
+    "healthScore": 0
+  },
+  {
+    "id": "795c152f-b837-491f-a013-1cd54b5441c1",
+    "name": "Github public api ",
+    "url": "– https://api.github.com/repos/vercel/next.js",
+    "status": "DOWN",
+    "latencyMs": 2,
+    "lastCheckedAt": "2026-03-01T18:46:43.643Z",
+    "healthScore": 0
+  },
+  {
+    "id": "ebf417a4-9567-4c2c-bdcc-778f7358a3e8",
+    "name": "country api ",
+    "url": "– https://restcountries.com/v3.1/name/singapore",
+    "status": "DOWN",
+    "latencyMs": 1,
+    "lastCheckedAt": "2026-03-01T18:47:29.636Z",
+    "healthScore": 0
+  },
+  {
+    "id": "721413ea-6722-49e4-a470-166a75855956",
+    "name": "demo",
+    "url": "https://restcountries.com/v3.1/name/singapore",
+    "status": "SLOW",
+    "latencyMs": 801,
+    "lastCheckedAt": "2026-03-01T18:47:21.924Z",
+    "healthScore": 70
+  },
+  {
+    "id": "8824d9e3-7f68-4833-89b2-617108d0eacb",
+    "name": "next js",
+    "url": "https://api.github.com/repos/vercel/next.js",
+    "status": "UP",
+    "latencyMs": 482,
+    "lastCheckedAt": "2026-03-01T18:47:50.821Z",
+    "healthScore": 100
+  },
+  {
+    "id": "f5e65895-b638-4399-a3dc-a9179e904d06",
+    "name": "shruti-meteo",
+    "url": "https://api.open-meteo.com/v1/forecast?latitude=1.29&longitude;= 103.85&current;_weather=true",
+    "status": "DOWN",
+    "latencyMs": 778,
+    "lastCheckedAt": "2026-03-01T18:51:12.446Z",
+    "healthScore": 0
+  },
+  {
+    "id": "de7ad051-cef2-4236-bd39-990dc91b1d87",
+    "name": "open where api",
+    "url": "https://api.open-meteo.com/v1/forecast?latitude=1.29&longitude;= 103.85&current;_weather=true",
+    "status": "DOWN",
+    "latencyMs": 782,
+    "lastCheckedAt": "2026-03-01T18:51:43.391Z",
+    "healthScore": 0
+  },
+  {
+    "id": "8731cdd3-5d9e-43ca-a17d-43df7929487d",
+    "name": "hirist",
+    "url": "https://www.hirist.tech/chats?channel=hirist--r30094-j2350534",
+    "status": "SLOW",
+    "latencyMs": 508,
+    "lastCheckedAt": "2026-03-01T18:52:03.734Z",
+    "healthScore": 70
+  }
+]

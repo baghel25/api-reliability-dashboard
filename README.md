@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# API Reliability Dashboard
 
-## Getting Started
+A lightweight internal dashboard to monitor the health and reliability of public APIs using **Next.js (App Router)**.
 
-First, run the development server:
+It performs real-time health checks, measures latency, classifies service status, and displays a health score.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Dashboard
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Displays a list of monitored services
+- Shows:
+  - Service name
+  - Status (**UP / SLOW / DOWN**)
+  - Response latency (ms)
+  - Last checked timestamp
+  - Health score
 
-## Learn More
+### Service Management
 
-To learn more about Next.js, take a look at the following resources:
+- Add a new service (name + URL)
+- Delete a service
+- Manually refresh a service’s health status
+- Instant UI update using `router.refresh()`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Health Check Logic
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Each service is checked via an HTTP request and classified as:
 
-## Deploy on Vercel
+| Status | Condition                                            |
+| ------ | ---------------------------------------------------- |
+| UP     | HTTP 2xx and latency < 500ms                         |
+| SLOW   | HTTP 2xx and latency ≥ 500ms and < 2000ms            |
+| DOWN   | Non-2xx, timeout, network error, or latency ≥ 2000ms |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Health Score
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **UP → 100**
+- **SLOW → 70**
+- **DOWN → 0**
+
+---
+
+## 🧪 Monitored Public APIs (No Auth Required)
+
+These APIs are used as real test targets for health monitoring:
+
+- Hacker News Search API  
+  https://hn.algolia.com/api/v1/search?query=ai
+
+- Open-Meteo Weather API  
+  https://api.open-meteo.com/v1/forecast?latitude=1.29&longitude=103.85&current_weather=true
+
+- GitHub Public API (Next.js repo)  
+  https://api.github.com/repos/vercel/next.js
+
+- Rest Countries API  
+  https://restcountries.com/v3.1/name/singapore
+
+> Note: The dashboard monitors **availability and latency**, not the API response data.
+
+---
+
+## 🛠 Tech Stack
+
+- Next.js 14+ (App Router)
+- TypeScript
+- Server Actions
+- Tailwind CSS
+- Native `fetch` for health checks
+- Local JSON file persistence
+
+---
+
+## 📂 Project Structure
