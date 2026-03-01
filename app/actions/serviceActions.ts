@@ -5,13 +5,17 @@ import { getServices, saveServices } from "@/lib/storage";
 import { checkHealth } from "@/lib/healthCheck";
 import { Service } from "@/types/service";
 
-export async function addService(name: string, url: string) {
-  const services = getServices();
+export async function addService(formData: FormData) {
+  const name = formData.get("name") as string;
+  const url = formData.get("url") as string;
 
+  if (!name || !url) return;
+
+  const services = getServices();
   const health = await checkHealth(url);
 
   const newService: Service = {
-    id: uuid(),
+    id: crypto.randomUUID(),
     name,
     url,
     ...health,

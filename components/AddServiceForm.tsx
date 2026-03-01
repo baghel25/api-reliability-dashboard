@@ -1,45 +1,36 @@
 "use client";
 
-import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
+import { useTransition } from "react";
 import { addService } from "@/app/actions/serviceActions";
 
 export default function AddServiceForm() {
-  const [name, setName] = useState("");
-  const [url, setUrl] = useState("");
-  const [isPending, startTransition] = useTransition();
   const router = useRouter();
+  const [isPending, startTransition] = useTransition();
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-
+      action={(formData) => {
         startTransition(async () => {
-          await addService(name, url);
-
-          setName("");
-          setUrl("");
-
-          router.refresh(); 
+          await addService(formData);
+          router.refresh();
         });
       }}
       className="flex gap-2"
     >
       <input
+        name="name"
         className="border p-2"
         placeholder="Service Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
         required
       />
       <input
+        name="url"
         className="border p-2"
         placeholder="URL"
-        value={url}
-        onChange={(e) => setUrl(e.target.value)}
         required
       />
+
       <button
         type="submit"
         disabled={isPending}
